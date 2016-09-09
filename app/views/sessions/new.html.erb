@@ -1,0 +1,66 @@
+<%
+  # @author Ido Efrati
+
+  # Login Form.
+  # Requires an email and a password. If login will fail due to invalid email/password combination the user will be prompt with an error message.
+%>
+  <section class= "top-image" Style="background-image: url('images/highway_blur.png');">
+    <div class="hero-unit">
+      <h1>TRIPPER</h1>
+      <h2 class="h2Shadow">Splitting road trip costs with your friends made easier!</h2>
+    </div>
+  </section>
+<section id="about" class="section_padding">
+
+<div id="sign-forms">
+<div id="signin-form">
+  <h1> <%= image_tag("key.png", :alt => "key") %> Sign in</h1>
+  <div class="span5 offset7">
+    <%= flash[:error] %>
+    <%= form_for(:session, url: sessions_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+      <br>
+
+      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+      <div class="btn btn-large btn-primary" id="signup-ask">Sign up!</div>
+   <% end %>
+  </div>
+  </div>
+
+  <div id="signup-form" class="signupFormStyle">
+  <%= render partial: "users/new_user",  locals: {:@user => User.new} %>
+  </div>
+</div>
+      <div class="container" >
+      <div class="row">
+        <div class="span4">
+          <%= image_tag("split.png", :alt => "tokens",   :class => "style_image") %><br><br><br>
+          <h4>Split!</h4>
+
+          <p>Road trips with friends are fun, but splitting the costs is painful. Tripper was designed to help you and your friends to easily upload and share your contribution ,both monetary and non-monetary, to your road trip .</p>
+        </div>
+        <div class="span4">
+          <%= image_tag("tokensAlot.png", :alt => "tokens",   :class => "style_image") %>
+          <h4> Tokens!</h4>
+          <p> Tripper uniquly defines cost in terms of tokens. With tokens you and your friends can value any contribution as you see fit. Just create your desired excahnge rate (1 hour of driving = 1 token) and you are good to go.</p>
+        </div>
+        <div class="span4">
+          <%= image_tag("money.png", :alt => "tokens",   :class => "style_image")%><br><br>
+          <h4>Fair cost distribution!</h4>
+          <p> At the end of your trip, Tripper will create a shared pool and convert all tokens back to cash. You and your friends will know how much money you should pay back or be paid back</p>
+       </div>
+
+      </div>
+    </div>
+
+</section>
+
+
+
+
+

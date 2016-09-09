@@ -1,0 +1,21 @@
+<% # @author Jesika Haria %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rate:</strong>
+  <%= @exchange.rate %>
+</p>
+
+<p>
+  <strong>Units:</strong>
+  <%= @exchange.units %>
+</p>
+
+<p>
+  <strong>Trip:</strong>
+  <%= @exchange.trip_id %>
+</p>
+
+<%= link_to 'Edit', edit_exchange_path(@exchange) %> |
+<%= link_to 'Back', exchanges_path %>

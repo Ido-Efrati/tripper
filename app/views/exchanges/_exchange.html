@@ -1,0 +1,6 @@
+<tr>
+  <td><%= exchange.rate %></td>
+  <td><%= exchange.units %></td>
+  <td><%= link_to 'Edit', edit_exchange_path(exchange) %></td>
+  <td><%= link_to 'x', exchange, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

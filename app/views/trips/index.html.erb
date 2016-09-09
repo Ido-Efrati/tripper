@@ -1,0 +1,20 @@
+<% # @author  Ryan Lacey %>
+
+<h1>My Trips</h1>
+
+<div id="tripList">
+  <ul>
+    <% @trips.each do |trip| %>
+    <li >
+      <span>
+        <p class="remove-icon">
+          <%= link_to '&times;'.html_safe, trip, method: :delete, data: { confirm: 'Are you sure you want to delete ' + trip.trip_name + '?' } %>
+        </p>
+        <div class="carImg"><div class ="carText"><strong><%= link_to trip.trip_name, trip %></strong></div></div>
+        <div class ="overflow"><strong>Trippers:</strong><%= trip.users.collect {|user| user.name }.to_sentence %></div>
+      </span>
+    </li>
+    <% end %>
+    <a id="test" href="#" hidden>hihi</a>
+  </ul>
+</div>

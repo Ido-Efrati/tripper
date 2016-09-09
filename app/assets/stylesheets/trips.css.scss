@@ -1,0 +1,89 @@
+// Place all the styles related to the Trips controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Replication of <sup> from https://gist.github.com/unruthless/413930
+.remove-icon {
+    display: inline;
+
+    // Specified in % so that the sup/sup is the right size relative to the surrounding text */
+    font-size: 100%;
+
+    // Zero out the line-height so that it doesn't interfere with the positioning that follows
+    line-height: 0;
+
+    // Where the magic happens: makes all browsers position the sup/sup properly, relative to the surrounding text */
+    position: relative;
+
+    // Note that if you're using Eric Meyer's reset.css, this is already set and you can remove this rule */
+    vertical-align: baseline;
+
+    //move right
+    float: right;
+
+    padding-top: 5px;
+}
+
+h1, h5 {
+  text-align:center;
+}
+
+h5 {
+  padding-right:60px;
+}
+
+.overflow {
+  overflow:scroll;
+}
+.carImg {
+  height: 125px;
+  width: 250px;
+  background-image: asset-data-url("car.png")
+}
+
+.carText {
+  text-align:center;
+  margin:0;
+  padding:60px 0 0 50px;
+  overflow:hidden;
+  width:150px
+}
+
+#tripList ul,li {
+  list-style: none;
+  display: inline-block;
+  padding-right:10px;
+}
+
+#tripList ul {
+  overflow: hidden;
+  padding: 3em;
+
+}
+
+#tripList ul li span {
+  display: inline-block;
+  height: 15em;
+  width: 19em;
+  padding: 1em;
+}
+
+.successField {
+  border-color: rgba(50, 205, 50, 0.8) !important;
+  outline: 0 !important;
+  outline: thin dotted \9 !important;
+  /* IE6-9 */
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(50,205,50,.6) !important;
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(50,205,50,.6) !important;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(50,205,50,.6) !important;
+}
+
+.errorField {
+  border-color: rgba(255, 0, 0, 0.8) !important;
+  outline: 0 !important;
+  outline: thin dotted \9 !important;
+  /* IE6-9 */
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255,0,0,.6) !important;
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255,0,0,.6) !important;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(255,0,0,.6) !important;
+}

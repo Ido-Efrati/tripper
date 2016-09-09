@@ -1,0 +1,25 @@
+<% # @author Ido Efrati %>
+
+<div id="tokens Table">
+
+	<table class="table table-condensed">
+		<tr>
+			<td>Total tokens:</td>
+			<td><%= totalcost %></td>
+		</tr>
+		<tr>
+			<td>My tokens:</td>
+			<td> <%= userCost %></td>
+		</tr>
+		<tr>
+			<% tokenOwe = ((totalcost/totalUsers.size) -  userCost) / tokenCash   %>
+			<% if tokenOwe > 0 %>
+				<td>I owe:</td>
+			<% else %>
+				<td>Friends owe me:</td>
+			<% end %>
+			<td><%= '$' + tokenOwe.abs.to_s  %></td>
+		</tr>
+	</table>
+
+</div>

@@ -1,0 +1,28 @@
+<% # @author Ryan Lacey %>
+
+<%= form_for(@trip) do |f| %>
+
+  <% if @trip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+      <ul>
+      <% @trip.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :trip_name %><br>
+    <%= f.text_field :trip_name, :autofocus => true %>
+  </div>
+  <p>Add fellow trippers by entering their emails.</p>
+  <p><sub>Note: They must be a registered Tripper member to join your trip!</sub></p>
+  <a id="addTripper" class="btn">Add another tripper</a>
+  <br><br>
+  <div class="actions">
+    <%= f.submit 'Create Trip', :class => :btn %>
+  </div>
+
+<% end %>

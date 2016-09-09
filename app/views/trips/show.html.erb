@@ -1,0 +1,30 @@
+<% # @author Ido Efrati %>
+
+<p id="notice" class="center"><%= notice %></p>
+<p class="center"><%= flash[:error] %></p>
+<h1> <%= @trip.trip_name %> </h1>
+<div class="center">
+	<div class="span1"></div>
+	<div class="span3">
+		<h4>Summary</h4>
+		<%= render partial: 'tokens_table',
+		locals: { totalcost: @totalcost, userCost: @userTotalCost, totalUsers: @allUsersInTrip, tokenCash: @cashTokensRate } %>
+		<br><br>
+		<h4>Exchanges</h4>
+		<div id ="exchanges-index-container">
+			<%= render partial: 'exchanges_index', locals: { trip_id: @trip.id } %>
+		</div>
+		<br><br>
+		<h4>Recent Costs</h4>
+		<%= render partial: 'users_cost_per_trip.html.erb', locals: {trip: @trip} %>
+	</div>
+	<div class="span6 offset2">
+		<h5><%= link_to 'Cost Distribution', trip_costs_url(@trip) %></h5>
+		<div id='totalTokenChart'></div>
+		<%= render_chart(@totalTokenChart, 'totalTokenChart') %>
+		<h5>My Costs</h5>
+		<div id='personalTokenChart'></div>
+		<%= render_chart(@personalTokenChart, 'personalTokenChart') %>
+	</div>
+	<div class="span1"></div>
+</div>

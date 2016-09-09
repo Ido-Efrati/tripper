@@ -1,0 +1,51 @@
+<%
+  # @author Jesika Haria
+  # A sign up partial. The form allows the user to sign up for the website by specifying a user name, an email and a password/password confirmation.
+  # If any of the above field is invalid the user will be prompt with an error.
+%>
+<div class="row">
+  <h1> <%= image_tag("signuser.png", :alt => "signuser") %> Sign up</h1>
+  <div class="span6 offset7">
+
+      <%= flash[:error] %>
+      <%= form_for @user do |f| %>
+
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
+      <%= f.label :name, "Username" %>
+      <%= image_tag("miniuser.png", :alt => "miniuser") %>
+      <%= f.text_field :name %>
+
+      <%= f.label :email %>
+      <%= image_tag("minimail.png", :alt => "minimail") %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= image_tag("minikey.png", :alt => "minikey") %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= image_tag("minikey.png", :alt => "minikey") %>
+      <%= f.password_field :password_confirmation %>
+
+      <br>
+
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %> 
+      <div class="icon btn btn-large signup-back" %>Back</div>
+
+    <% end %>
+
+  </div>
+
+</div>
+

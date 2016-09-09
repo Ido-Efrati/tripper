@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+#@author ido efrati
+
+user1_cash1:
+  value: 150
+  exchange_id: 1
+
+user1_drive1:
+  value: 60
+  exchange_id: 2
+
+user2_cash1:
+  value: 65
+  exchange_id: 1
+
+user2_drive1:
+  value: 105
+  exchange_id: 2
+
+
+# trip 2
+
+user1_cash2:
+  value: 115
+  exchange_id: 3
+
+user1_drive2:
+  value: 5
+  exchange_id: 4
+
+user2_cash2:
+  value: 15
+  exchange_id: 3
+
+user2_drive2:
+  value: 35
+  exchange_id: 4

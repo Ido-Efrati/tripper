@@ -1,0 +1,16 @@
+<% # @author Ido Efrati %>
+
+<div id="users_cost">
+	<div id="accordion">
+	 	<% @allUsersInTrip.each do |user| %>
+	    	<h3><%= user.name %></h3>
+	    	<% str = "" %>
+		    	<% user.get_trip_costs(@trip.id).last(3).each do |cost| %>
+		    	<% if cost != nil %>
+					<% str += cost.description + " " + number_with_precision(cost.to_tokens, :precision => 2).to_s + "<br/>" %>
+				<% end %>
+	   		<% end %>
+	    	<p><%= str.html_safe %></p>
+	 	<% end %>
+	 </div>
+</div>

@@ -1,0 +1,33 @@
+<% # @author Jesika Haria %>
+
+<div class="center">
+<%= token_tag(nil) %>
+  <%= form_for([@trip, @cost]) do |f| %>
+
+    <% if @cost.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@cost.errors.count, "error") %> prohibited this cost from being saved:</h2>
+        <ul>
+          <% @cost.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :value %><br>
+      <%= f.text_field :value, placeholder: '16.23', id: "value", autofocus: true %>
+    </div>
+    <div class="field">
+      <%= f.label :description %><br>
+      <%= f.text_field :description, placeholder: 'Bought lunch at Taco Bell' , id: :description %>
+    </div>
+    <div class="field">
+      <%= f.label :exchange_id %><br>
+      <%= f.select :exchange_id, Exchange.get_exchange_select(@trip.id), id: :exchange_id %>
+    </div>
+    <%= f.submit "Create Cost", {id: 'save-cost', :class => "btn btn-primary"} %>
+
+  <% end %>
+</div>

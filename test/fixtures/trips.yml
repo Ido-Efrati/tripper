@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+#@author ido efrati
+
+trip1:
+  trip_name: TripToCali
+  user_id: 1
+
+trip2:
+  trip_name: TripToBos
+  user_id: 1

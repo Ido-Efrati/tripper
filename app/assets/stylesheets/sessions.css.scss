@@ -1,0 +1,28 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+html, body {
+    padding:0;
+    margin: 0;
+    height: 100%;
+}
+
+.top-image {
+    margin-top:0px;
+    text-align: center;
+    background-color: #000008;
+    background-image: url('images/highway_blur.png');
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+}
+
+.section_padding{
+    padding-top:30px;
+}
+
+.signupFormStyle{
+    display: none;
+}

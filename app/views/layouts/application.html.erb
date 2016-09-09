@@ -1,0 +1,93 @@
+<% # @author Jesika Haria, Ryan Lacey %>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tripper</title>
+  <%= stylesheet_link_tag    "application", media: "all"%>
+  <%= javascript_include_tag "application"%>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src='http://www.google.com/jsapi'></script>
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+    <% if current_user %>
+      <a class="brand" href="<%= trips_path %>">Tripper</a>
+      <div class="nav-collapse collapse">
+
+        <ul class="nav">
+          <% if (controller_name == "trips" && action_name != "index") || (controller_name != "trips") %>
+            <li><a href="<%= trips_path %>">My trips</a></li>
+          <% end %>
+          <% if controller_name == "trips" && action_name == "index" %>
+            <li><a href="<%= new_trip_path %>">New trip</a></li>
+          <% end %>
+          <% if controller_name == "trips" && action_name == "show" %>
+            <li><a href="#exchangeModal" role="button" id="new-exchange">New exchange</a></li>
+            <li><a href="#costModal" role="button" id="new-cost">New cost</a></li>
+            <li><a href="<%= trip_costs_url(@trip) %>">All costs</a></li>
+          <% end %>
+        </ul>
+        <ul class="nav pull-right">
+            <li>
+              <p class="navbar-text">
+                Logged in as <%= current_user.name %>
+                (<%= link_to "Logout", signout_path, method: :delete %>)
+              </p>
+            </li>
+        </ul>
+      </div>
+    <% end %>
+  <% if current_user == nil %>
+    <a class="brand" href="<%= root_path %>">Tripper</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav pull-right">
+            <li><a href="signin#about">Login</a></li>
+            <li><%= link_to "Sign up", '/signup'%></li>
+        </ul>
+      </div>
+  <% end %>
+
+
+    </div>
+  </div>
+</div>
+
+ <div id="divHeight" <% if current_user %> class="Main-container" <% end %>> <%= yield %></div>
+
+</body>
+</html>
+
+
+<!-- Exchange Modal -->
+    <div id="exchangeModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">New exchange</h3>
+    </div>
+    <div class="modal-body center">
+    <h2 id="modal-header">Create a new exchange rate here!</h2>
+    <%= render "exchanges/form", :@exchange => Exchange.new %>
+    </div>
+    </div>
+
+<% if @trip && @trip.id %> 
+<!-- Cost Modal -->
+    <div id="costModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">New cost</h3>
+    </div>
+    <div class="modal-body center">
+    <h2 id="costModal-header">Create a new cost here!</h2>
+    <% if @trip %> 
+    <%= render "costs/form",  :@cost => Cost.new %>
+    <% end %> 
+    </div>
+    </div>
+<% end %>

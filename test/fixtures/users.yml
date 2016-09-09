@@ -1,0 +1,14 @@
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+#@author ido efrati
+
+ user_one:
+   name: Ido Efrati
+   email: idoe@mit.edu
+
+ user_two:
+   name: Ryan Lacey
+   email: rlacey@mit.edu
+
+ user_three:
+   name: Jesika Haria
+   email: jesika@mit.edu
